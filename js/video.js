@@ -44,3 +44,35 @@ document.querySelector("#skip").addEventListener("click", function(){
 		console.log("new time" + video.currentTime);
 	}
 });
+
+document.querySelector("#mute").addEventListener("click", function(){
+	console.log("Mute my Video");
+	video.muted = !video.muted;
+	if (video.muted){
+		document.getElementById("mute").textContent = "Unmute";
+	}
+	else{
+		document.getElementById("mute").textContent = "Mute";
+	}
+});
+
+
+
+document.querySelector("#slider").addEventListener("change", function(){
+	console.log("Change volume");
+	video.volume= document.getElementById("slider").value/100;
+	document.querySelector("#volume").innerHTML = video.volume*100+"%";
+});
+
+
+
+
+document.querySelector('#vintage').addEventListener('click', function(){
+	console.log('apply filter');
+	video.classList.add('oldSchool');
+});
+
+document.querySelector('#orig').addEventListener("click", function(){
+	console.log("remove filter");
+	video.classList.remove("oldSchool");
+});
